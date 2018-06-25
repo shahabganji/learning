@@ -5,7 +5,7 @@
       <clr-icon shape="caret up" *ngIf="stock.change > 0"></clr-icon>
       <clr-icon shape="caret down" *ngIf="stock.change < 0"></clr-icon>
       <clr-icon shape="caret right" *ngIf="stock.change == 0"></clr-icon>
-       {{stock.change | currency:'USD':'symbol':'.2'}} - {{stock.price | currency:'USD':'symbol':'.2'}} {{stock.symbol}} ({{stock.name}})
+      {{stock.change | currency:'USD':'symbol':'.2'}} - {{stock.price | currency:'USD':'symbol':'.2'}} {{stock.symbol}} ({{stock.name}})
     </li>
   </ul>
 </nav>

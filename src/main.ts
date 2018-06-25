@@ -5,9 +5,10 @@ import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 
 
-import {ConfigService} from './app/services/config.service';
+import { ConfigService } from './app/services/config.service';
 
-ConfigService.set('api' , 'https://angular-in-action-portfolio.firebaseio.com/stocks.json' );
+ConfigService.set('api', 'https://angular-in-action-portfolio.firebaseio.com/stocks.json');
+ConfigService.set('fallback_api', 'https://api.myjson.com/bins/a4nuu');
 
 if (environment.production) {
   enableProdMode();

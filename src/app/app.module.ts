@@ -12,6 +12,7 @@ import { AlertComponent } from './alert/alert.component';
 
 import { LocalStorageService } from './services/local-storage.service';
 import { AccountService } from './services/account.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { AccountService } from './services/account.service';
     BrowserModule,
     BrowserAnimationsModule,
     ClarityModule,
+    HttpClientModule
   ],
   providers: [
     LocalStorageService,
