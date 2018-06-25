@@ -1,11 +1,13 @@
 import { Component, DoCheck } from '@angular/core';
 import { AccountService } from '../services/account.service';
 import { IStock } from '../services/stocks.model';
+import { StocksService } from '../services/stocks.service';
 
 @Component({
   selector: 'app-investments',
   templateUrl: './investments.component.html',
   styleUrls: ['./investments.component.css']
+  // , providers: [StocksService]
 })
 export class InvestmentsComponent implements DoCheck {
   cost: number = 0;
