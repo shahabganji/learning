@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 import { AccountService } from './account.service';
 import { ConfigService } from './config.service';
 import { IStock } from './stocks.model';
@@ -16,7 +17,7 @@ export class StockInterceptor implements HttpInterceptor {
 
     request.headers.append('Accept', 'application/json');
 
-    return next.handle(request).do(event => {
+    return next.handle(request).pipe(tap(event => {
 
       console.log(event);
 
@@ -38,6 +39,6 @@ export class StockInterceptor implements HttpInterceptor {
         return stocks;
 
       }
-    });
+    }) );
   }
 }
