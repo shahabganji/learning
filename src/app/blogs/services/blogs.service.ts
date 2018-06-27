@@ -11,7 +11,7 @@ export class BlogsService {
 
   post(id: number) {
     return this._data.find(post => {
-      return post.post_id === id
+      return post.post_id === id;
     });
   }
 }
