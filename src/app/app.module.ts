@@ -14,6 +14,7 @@ import { LocalStorageService } from './services/local-storage.service';
 import { AccountService } from './services/account.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { StockInterceptor } from './services/interceptor.service';
+import { AlertService } from './services/alert.service';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { StockInterceptor } from './services/interceptor.service';
     LocalStorageService,
     CurrencyPipe,
     AccountService,
+    AlertService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: StockInterceptor,
