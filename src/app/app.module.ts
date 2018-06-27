@@ -1,45 +1,35 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ClarityModule } from '@clr/angular';
-import { CurrencyPipe } from '@angular/common';
+import { ForumsModule } from './forums/forums.module';
 
 import { AppComponent } from './app.component';
-import { InvestmentsComponent } from './investments/investments.component';
-import { TickerComponent } from './ticker/ticker.component';
-import { StocksComponent } from './stocks/stocks.component';
-import { AlertComponent } from './alert/alert.component';
+import { ChatComponent } from './chat/chat.component';
+import { ChatListComponent } from './chat-list/chat-list.component';
+import { LoginComponent } from './login/login.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
-import { LocalStorageService } from './services/local-storage.service';
-import { AccountService } from './services/account.service';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { StockInterceptor } from './services/interceptor.service';
-import { AlertService } from './services/alert.service';
+import { UserService } from './services/user.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    InvestmentsComponent,
-    TickerComponent,
-    StocksComponent,
-    AlertComponent,
+    ChatComponent,
+    ChatListComponent,
+    LoginComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     BrowserAnimationsModule,
-    ClarityModule,
-    HttpClientModule
+    ClarityModule.forRoot(),
+    ForumsModule,
   ],
   providers: [
-    LocalStorageService,
-    CurrencyPipe,
-    AccountService,
-    AlertService,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: StockInterceptor,
-      multi: true
-    }
+    UserService
   ],
   bootstrap: [AppComponent]
 })
