@@ -12,6 +12,8 @@ import { LoginComponent } from './login/login.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 import { UserService } from './services/user.service';
+import { AppRoutes } from './app.routes';
+
 
 @NgModule({
   declarations: [
@@ -27,6 +29,7 @@ import { UserService } from './services/user.service';
     BrowserAnimationsModule,
     ClarityModule.forRoot(),
     ForumsModule,
+    AppRoutes
   ],
   providers: [
     UserService
