@@ -5,7 +5,7 @@ import { UserService } from './user.service';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuardService implements CanActivate, CanActivateChild {
+export class AuthGuardService implements CanActivate/*, CanActivateChild*/ {
 
   constructor(
     private userService: UserService,
@@ -28,8 +28,8 @@ export class AuthGuardService implements CanActivate, CanActivateChild {
     return false;
   }
 
-  canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    return this.canActivate(route, state);
-  }
+  // canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+  //   return this.canActivate(route, state);
+  // }
 
 }
