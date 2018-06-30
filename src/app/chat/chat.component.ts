@@ -17,18 +17,29 @@ export class ChatComponent implements OnInit, AfterViewChecked {
 
   constructor(
     private chatBotService: ChatBotService,
-    private userService: UserService) { }
+    private userService: UserService,
+    private route: ActivatedRoute,
+    private router: Router) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.route.params.subscribe((params: Params) => {
+      this.messages = [];
+      this.user = this.userService.getUser();
+      this.guest = params['username'];
+    });
+  }
 
   ngAfterViewChecked() {
     this.scrollToBottom();
   }
 
-  close() {}
+  close() {
+    // to close a secondary route:
+    this.router.navigate([{ outlets: { chat: null } }]);
+  }
 
   onKeyUp(event) {
-    if (event.keyCode == 13) {
+    if (event.keyCode === 13) {
       this.send();
     }
   }
@@ -51,7 +62,7 @@ export class ChatComponent implements OnInit, AfterViewChecked {
   private scrollToBottom(): void {
     try {
       this.scrollBox.nativeElement.scrollTop = this.scrollBox.nativeElement.scrollHeight;
-    } catch(err) {
+    } catch (err) {
       console.log(err);
     }
   }

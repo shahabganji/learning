@@ -13,6 +13,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 
 import { UserService } from './services/user.service';
 import { AppRoutes } from './app.routes';
+import { AuthGuardService } from './services/auth-guard.service';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { AppRoutes } from './app.routes';
     AppRoutes
   ],
   providers: [
-    UserService
+    UserService,
+    AuthGuardService
   ],
   bootstrap: [AppComponent]
 })

@@ -7,14 +7,18 @@
       </a>
     </div>
     <div class="header-nav">
-        <a class="nav-link" routerLink="/forums"><span class="nav-text">Forums</span></a>
-        <a class="nav-link"><span class="nav-text">Blogs</span></a>
+      <a class="nav-link" routerLink="/forums">
+        <span class="nav-text">Forums</span>
+      </a>
+      <a class="nav-link">
+        <span class="nav-text">Blogs</span>
+      </a>
     </div>
     <div class="header-actions">
-      <a class="nav-link nav-icon">
+      <a class="nav-link nav-icon" [routerLink]="[{outlets:{chat: ['users']}}]">
         <clr-icon shape="talk-bubbles"></clr-icon>
       </a>
-      <a class="nav-link nav-icon">
+      <a class="nav-link nav-icon" (click)="logout()" *ngIf="!userService.isGuest()">
         <clr-icon shape="logout"></clr-icon>
       </a>
     </div>
@@ -25,3 +29,4 @@
     </div>
   </div>
 </clr-main-container>
+<router-outlet name="chat"></router-outlet>

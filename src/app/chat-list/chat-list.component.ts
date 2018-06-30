@@ -11,11 +11,14 @@ export class ChatListComponent implements OnInit {
   users: any[];
   talkTo: string;
 
-  constructor(private forumsService: ForumsService) { }
+  constructor(private forumsService: ForumsService, private router: Router) { }
 
   ngOnInit() {
     this.users = this.forumsService.users;
   }
 
-  close() {}
+  close() {
+    // to close a secondary route:
+    this.router.navigate([{ outlets: { chat: null } }]);
+  }
 }
